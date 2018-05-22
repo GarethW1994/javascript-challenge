@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Challenge</title>
+
+    <!-- link to app css -->
+    <link rel="stylesheet" href="./css/app.css">
+    <!-- link to fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <!-- link to jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <!-- link to bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <!-- link to handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-beer"></i> Beer-ific
+            </a>
+        </nav>
+    </header>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div id="categoryContainer">
+                    <script src="main.js" id="categoryList" type="type/x-handlebars" charset="utf-8">
+                        <div class="dropdown">
+                            <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Select Category
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" id="all">All Categories</a>
+                                {{#each categories}}
+                                <a class="dropdown-item" id="{{this.url}}">{{this.name}}</a>
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </script>
+                </div>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-info" id="addNewBeerBtn">Add New Beer</button>
+            </div>
+            <div class="col-sm">
+                <input class="form-control" type="text" placeholder="Search Beer...">
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div id="beersList">
+                    <script src="handleCategoryClick.js" id="beers" type="type/x-handlebars" charset="utf-8">
+                        {{#if beers}} {{#each beers}}
+
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="./images/beer-image.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.name}}</h5>
+                                <button type="button" class="btn btn-primary" id={{this.url}} value="details">View Details</button>
+                                <button type="button" class="btn btn-danger" id={{this.url}} value="delete">Delete</button>
+                            </div>
+                        </div>
+
+                        {{/each}} {{else}}
+                        <span>No beers found under this category</span>
+                        {{/if}}
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- link to data service -->
+    <script src="./javascript/dataService.js "></script>
+    <!-- link to handle category click -->
+    <script src="./javascript/handleCategoryClick.js "></script>
+    <!-- link to handle delete beer item -->
+    <script src="./javascript/handleDeleteClick.js "></script>
+    <!-- link to main js -->
+    <script src="./javascript/main.js "></script>
+</body>
+
+</html>

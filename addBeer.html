@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Challenge</title>
+
+    <!-- link to app css -->
+    <link rel="stylesheet" href="./css/app.css">
+    <!-- link to fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <!-- link to jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <!-- link to bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <!-- link to handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-beer"></i> Beer-ific
+            </a>
+        </nav>
+    </header>
+
+    <br>
+
+    <div class="container">
+        Add New Beer
+        <hr>
+        <!-- form user info -->
+        <div class="container">
+            <div class="col-md-5">
+                <div class="form-area">
+                    <form role="form" id="addBeerForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="url" name="id" placeholder="ID eg. 5" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="ibu" name="ibu" placeholder="IBU" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="calories" name="calories" placeholder="Calories" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="abv" name="abv" placeholder="ABV" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="style" name="style" placeholder="Style" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="brewery_location" name="brewery_location" placeholder="Brewery Location" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="created_on" name="created_on" placeholder="Created On eg. YY-MM-DD" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="category" name="category" placeholder="Category eg. 7" required>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="addBeer">Add Beer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- link to data service -->
+    <script src="./javascript/dataService.js"></script>
+    <!-- link to add beer  -->
+    <script src="./javascript/addBeer.js"></script>
+</body>
+
+</html>
