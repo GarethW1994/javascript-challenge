@@ -34,10 +34,20 @@
         <!-- Image and text -->
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-beer"></i> Beer-ific
+                <i class="fas fa-beer"></i> Beer
             </a>
         </nav>
     </header>
+
+    <div id="loader" class="hidden">
+        <div class="dl">
+            <div class="dl__container">
+                <div class="dl__corner--top"></div>
+                <div class="dl__corner--bottom"></div>
+            </div>
+            <div class="dl__square"></div>
+        </div>
+    </div>
 
     <br>
     <div class="container">
@@ -66,47 +76,57 @@
                 <button type="button" class="btn btn-info" id="addNewBeerBtn">Add New Beer</button>
             </div>
             <div class="col-sm">
-                <input class="form-control" type="text" placeholder="Search Beer...">
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    <div class="container">
-        <div class="row">
-
-            <div class="col-sm-12">
-                <div id="beersList">
-                    <script src="handleCategoryClick.js" id="beers" type="type/x-handlebars" charset="utf-8">
-                        {{#if beers}} {{#each beers}}
-
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="./images/beer-image.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{this.name}}</h5>
-                                <button type="button" class="btn btn-primary" id={{this.url}} value="details">View Details</button>
-                                <button type="button" class="btn btn-danger" id={{this.url}} value="delete">Delete</button>
-                            </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <input class="form-control" type="text" id="beerSearch" placeholder="Search Beer...">
                         </div>
+                        <div class="col">
 
-                        {{/each}} {{else}}
-                        <span>No beers found under this category</span>
-                        {{/if}}
-                    </script>
+                            <button type="button" class="btn btn-light" id="clearSearch">Clear</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- link to data service -->
-    <script src="./javascript/dataService.js "></script>
-    <!-- link to handle category click -->
-    <script src="./javascript/handleCategoryClick.js "></script>
-    <!-- link to handle delete beer item -->
-    <script src="./javascript/handleDeleteClick.js "></script>
-    <!-- link to main js -->
-    <script src="./javascript/main.js "></script>
+        <hr>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div id="beersList">
+                        <script src="handleCategoryClick.js" id="beers" type="type/x-handlebars" charset="utf-8">
+                            {{#if beers}} {{#each beers}}
+
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="./images/beer-image.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{this.name}}</h5>
+                                    <button type="button" class="btn btn-primary" id={{this.url}} value="details">View Details</button>
+                                    <button type="button" class="btn btn-danger" id={{this.url}} value="delete">Delete</button>
+                                </div>
+                            </div>
+
+                            {{/each}} {{else}}
+                            <span>No beers found under this category</span>
+                            {{/if}}
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- link to data service -->
+        <script src="./javascript/dataService.js "></script>
+        <!-- link to handle category click -->
+        <script src="./javascript/handleFiltering.js"></script>
+        <!-- link to handle delete beer item -->
+        <script src="./javascript/handleDeleteClick.js "></script>
+        <!-- link to main js -->
+        <script src="./javascript/main.js "></script>
 </body>
 
 </html>

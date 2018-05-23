@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $("#addBeer").on('click', () => {
+    $("#addBeer").on('click', async () => {
         let form = $("#addBeerForm")[0];
 
         let newBeer = {};
@@ -51,11 +51,18 @@ $(document).ready(() => {
             newBeer.url = "http://apichallenge.canpango.com/beers/" + newBeer.url + "/";
             newBeer.category = "http://apichallenge.canpango.com/category/" + newBeer.category + "/";
 
-            dataService().addBeer("POST", "http://apichallenge.canpango.com/beers/", newBeer)
-                .done((beer) => {
-                    window.location = "index.html";
-                    console.log(beer);
-                });
-        }
+
+
+            try {
+                let result = await dataService().addBeer("POST", "http://apichallenge.canpango.com/beers/", newBeer);
+            } catch (result) {
+                if (result) {
+                    if (result.statusText == "Created") {
+                        window.location = "index.html";
+
+                    };
+                };
+            };
+        };
     });
 });

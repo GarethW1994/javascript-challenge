@@ -1,18 +1,19 @@
 $(document).ready(() => {
+    // compile category list 
+    let categoryContainer = document.getElementById('categoryContainer');
+    let listSource = document.getElementById('categoryList');
+    let categoryTemplate = Handlebars.compile(listSource.innerHTML);
+
     // list of categories
     let categoryList;
 
     var selectedBeer;
 
-    let baseURL = "http://apichallenge.canpango.com"
+    let baseURL = "http://apichallenge.canpango.com";
+
     // Get ALL categories
     dataService().getCategories("GET", baseURL + "/categories/")
         .done((categories) => {
-            // compile category list 
-            let categoryContainer = document.getElementById('categoryContainer');
-            let listSource = document.getElementById('categoryList');
-            let categoryTemplate = Handlebars.compile(listSource.innerHTML);
-
             categoryList = categories;
 
             //Populate category in list on html
@@ -43,16 +44,7 @@ $(document).ready(() => {
                 .done((beer) => {
                     alert("Successfully deleted beer");
                     // Get ALL categories
-                    dataService().getCategories("GET", baseURL + "/categories/")
-                        .done((categories) => {
-                            // compile category list 
-                            categoryList = categories;
-
-                            //Populate category in list on html
-                            categoryContainer.innerHTML = categoryTemplate({
-                                categories: categoryList
-                            });
-                        });
+                    window.location.reload();
                 });
         };
     });

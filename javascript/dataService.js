@@ -108,12 +108,31 @@
                return beer;
            });
        };
+
+       const searchBeer = (method, url) => {
+           let foundBeer = $.ajax({
+               method: method,
+               url: url,
+               success: ((beer) => {
+                   return beer;
+               }),
+               fail: ((jqXHR, errorText) => {
+
+               })
+           });
+
+           return foundBeer.done((beer) => {
+               return beer;
+           });
+       };
+
        return {
            getCategories,
            getAllBeers,
            getBeerById,
            updateBeer,
            deleteBeer,
-           addBeer
+           addBeer,
+           searchBeer
        };
    };
