@@ -13,7 +13,7 @@ $(document).ready(() => {
 
     // render all the beers
     // get beers under specified category from data service
-    dataService().getAllBeers('GET', "http://apichallenge.canpango.com/beers/")
+    dataService().getAllBeers('GET', "//apichallenge.canpango.com/beers/")
         .done((beers) => {
             if (beers) {
                 allbeers = beers;
@@ -24,12 +24,14 @@ $(document).ready(() => {
     $('#categoryContainer').on('click', (event) => {
         // get the category number from selected category
         let categoryUrl = event.target.id;
+        // show the loader
+        $("#loader").removeClass("hidden");
 
         if (categoryUrl.includes('.com')) {
             let categoryNumber = getCategoryNum(categoryUrl);
 
             // get beers under specified category from data service
-            dataService().getAllBeers('GET', "http://apichallenge.canpango.com/beers/")
+            dataService().getAllBeers('GET', "//apichallenge.canpango.com/beers/")
                 .done((beers) => {
                     if (beers) {
                         let resp = filterForCategory(beers, categoryNumber);
@@ -67,6 +69,8 @@ $(document).ready(() => {
     };
 
     const renderBeerList = (beers) => {
+        // show the loader
+        $("#loader").addClass("hidden");
         beerContainer.innerHTML = beerListTemplate({
             beers: beers
         });
@@ -84,7 +88,7 @@ $(document).ready(() => {
         let query = event.target.value;
 
         if (query) {
-            dataService().searchBeer("GET", "http://apichallenge.canpango.com/beers/search/?q=" + query.toLocaleLowerCase())
+            dataService().searchBeer("GET", "//apichallenge.canpango.com/beers/search/?q=" + query.toLocaleLowerCase())
                 .done((beer) => {
                     if (beer.length > 0) {
                         beerContainer.innerHTML = beerListTemplate({

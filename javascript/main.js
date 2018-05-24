@@ -9,7 +9,7 @@ $(document).ready(() => {
 
     var selectedBeer;
 
-    let baseURL = "http://apichallenge.canpango.com";
+    let baseURL = "//apichallenge.canpango.com";
 
     // Get ALL categories
     dataService().getCategories("GET", baseURL + "/categories/")

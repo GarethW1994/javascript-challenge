@@ -48,13 +48,13 @@ $(document).ready(() => {
         };
 
         if (valid) {
-            newBeer.url = "http://apichallenge.canpango.com/beers/" + newBeer.url + "/";
-            newBeer.category = "http://apichallenge.canpango.com/category/" + newBeer.category + "/";
+            newBeer.url = "//apichallenge.canpango.com/beers/" + newBeer.url + "/";
+            newBeer.category = "//apichallenge.canpango.com/category/" + newBeer.category + "/";
 
 
 
             try {
-                let result = await dataService().addBeer("POST", "http://apichallenge.canpango.com/beers/", newBeer);
+                let result = await dataService().addBeer("POST", "//apichallenge.canpango.com/beers/", newBeer);
             } catch (result) {
                 if (result) {
                     if (result.statusText == "Created") {
